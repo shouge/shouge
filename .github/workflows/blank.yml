@@ -1,4 +1,4 @@
-name: generate animation
+name: generate contribution snake animation
 
 on:
   # run automatically every 6 hours
@@ -13,8 +13,6 @@ on:
     branches:
     - master
     
-  
-
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -29,6 +27,14 @@ jobs:
           outputs: |
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+            dist/github-contribution-grid-snake.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
+            
+      - name: ensure the generated file exists
+        run: |
+          ls dist
+          test -f dist/github-contribution-grid-snake.svg
+          test -f dist/github-contribution-grid-snake-dark.svg
+          test -f dist/github-contribution-grid-snake.gif
 
       # push the content of <build_dir> to a branch
       # the content will be available at https://raw.githubusercontent.com/<github_user>/<repository>/<target_branch>/<file> , or as github page
