@@ -1,4 +1,4 @@
-name: generate contribution snake animation
+name: generate contribution snake
 
 on:
   # run automatically every 6 hours
@@ -20,8 +20,8 @@ jobs:
     
     steps:
       # generates a snake game from a github user (<github_user_name>) contributions graph, output a svg animation at <svg_out_path>
-      - name: generate github-contribution-grid-snake.svg
-        uses: Platane/snk/svg-only@v2.0.0-rc.1
+      - name: generate-snake-game-from-github-contribution-grid
+        uses: Platane/snk@v2.0.0-rc.2
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
